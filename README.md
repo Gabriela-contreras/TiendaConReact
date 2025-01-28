@@ -29,6 +29,16 @@ Creamos el Navbar y utilizamos Navlink
 
 ---------------------------------------------------
 
+Layout 
+<!-- creamos el componente layout para poder encapsular nuestras 
+paginas en ese componente y darle los estilos deseados -->
 
+-----------------------------------------------------------
 
+Creamos las card y usamos una Api de Platzi con productos ya cargados 
+<!-- export const apiUrl = 'https://api.escuelajs.co/api/v1' -->
 
+Hicimos el estilo de la card con tailwindcss y luego nos fijamos en la api para pasarle los titulos , precios , etc 
+hicimos una funcion y creamos un estado en home para recorrer la api , convertirla en json y extraer la info 
+
+----------------------------------------------------------------

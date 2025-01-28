@@ -1,8 +1,11 @@
+import { Layout } from "../../Components/Layout";
+
+
 function SingIn() {
     return (
-        <div>
+        <Layout>
             <h1>Sign In</h1>
-        </div>
+        </Layout>
     )
 }
 export { SingIn };
