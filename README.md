@@ -14,7 +14,8 @@ ORGANIZAMOS LAS CARPETAS EN SRC , CREAMOS UNA CARPETA PAGES DONDE VAN A ESTAR TO
 
 -----------------------------------------
 
-Proximo paso es crear los archivos con los index.jsx y hacer los componentes de cada archivo 
+Proximo paso es crear los archivos con los index.jsx , hacer los componentes de cada archivo y
+Creamos los componentes y usamos UseRoutes para redirigir desde App .
 Tenemos :
 Home 
 MyAccount
@@ -23,6 +24,11 @@ MyOrders
 SingIn
 NotFound 
 
-Creamos los componentes y usamos UseRoutes para redirigir desde App 
+---------------------------------------------------
+Creamos el Navbar y utilizamos Navlink
+
+---------------------------------------------------
+
+
 
 
