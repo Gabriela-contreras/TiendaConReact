@@ -1,20 +1,22 @@
-import { NavLink } from "react-router-dom";
+import { useContext } from 'react'
+import { NavLink } from 'react-router-dom'
+import { ShoppingCartContext } from '../../Context'
 
+const Navbar = () => {
+    const context = useContext(ShoppingCartContext);
+    const activeStyle = 'underline underline-offset-4'
 
-function Navbar() {
-    const activeStyle = "underline underline-offset-4";
     return (
-        <nav className="flex justify-between items-center top-0 mb-2 h-16 w-full px-4 shadow-md">
-            <ul className='flex justify-between items-center space-x-4 ml-2 font-normal'>
-                <li className="font-semibold text-lg">
-                    <NavLink
-                        to="/" >
+        <nav className='flex justify-between items-center fixed z-10 top-0 w-full py-5 px-8 text-sm font-light'>
+            <ul className='flex items-center gap-3'>
+                <li className='font-semibold text-lg'>
+                    <NavLink to='/'>
                         Shopi
                     </NavLink>
                 </li>
                 <li>
                     <NavLink
-                        to="/"
+                        to='/'
                         className={({ isActive }) =>
                             isActive ? activeStyle : undefined
                         }>
@@ -23,16 +25,7 @@ function Navbar() {
                 </li>
                 <li>
                     <NavLink
-                        to="/electronics"
-                        className={({ isActive }) =>
-                            isActive ? activeStyle : undefined
-                        }>
-                        Electronics
-                    </NavLink>
-                </li>
-                <li>
-                    <NavLink
-                        to="/clothes"
+                        to='/clothes'
                         className={({ isActive }) =>
                             isActive ? activeStyle : undefined
                         }>
@@ -41,7 +34,16 @@ function Navbar() {
                 </li>
                 <li>
                     <NavLink
-                        to="/furnitures"
+                        to='/electronics'
+                        className={({ isActive }) =>
+                            isActive ? activeStyle : undefined
+                        }>
+                        Electronics
+                    </NavLink>
+                </li>
+                <li>
+                    <NavLink
+                        to='/furnitures'
                         className={({ isActive }) =>
                             isActive ? activeStyle : undefined
                         }>
@@ -50,7 +52,16 @@ function Navbar() {
                 </li>
                 <li>
                     <NavLink
-                        to="/others"
+                        to='/toys'
+                        className={({ isActive }) =>
+                            isActive ? activeStyle : undefined
+                        }>
+                        Toys
+                    </NavLink>
+                </li>
+                <li>
+                    <NavLink
+                        to='/others'
                         className={({ isActive }) =>
                             isActive ? activeStyle : undefined
                         }>
@@ -58,54 +69,43 @@ function Navbar() {
                     </NavLink>
                 </li>
             </ul>
-            <ul className='flex justify-between items-center space-x-4 mr-2 font-normal'>
-                <li className="text-black/60">
-                    <NavLink>
-                        gabriela@gmail.com
+            <ul className='flex items-center gap-3'>
+                <li className='text-black/60'>
+                    teff@platzi.com
+                </li>
+                <li>
+                    <NavLink
+                        to='/my-orders'
+                        className={({ isActive }) =>
+                            isActive ? activeStyle : undefined
+                        }>
+                        My Orders
                     </NavLink>
                 </li>
                 <li>
                     <NavLink
-                        to="/my-orders"
+                        to='/my-account'
                         className={({ isActive }) =>
                             isActive ? activeStyle : undefined
                         }>
-                        MyOrders
+                        My Account
                     </NavLink>
                 </li>
                 <li>
                     <NavLink
-                        to="/my-account"
+                        to='/sing-in'
                         className={({ isActive }) =>
                             isActive ? activeStyle : undefined
                         }>
-                        MyAccount
+                        Sign In
                     </NavLink>
                 </li>
                 <li>
-                    <NavLink
-                        to="/sign-in"
-                        className={({ isActive }) =>
-                            isActive ? activeStyle : undefined
-                        }>
-                        SingIn
-                    </NavLink>
+                    🛒 {context.count}
                 </li>
-                <li>
-                    <NavLink
-                        to="/shop"
-                        className={({ isActive }) =>
-                            isActive ? activeStyle : undefined
-                        }>
-                        🛒0
-                    </NavLink>
-                </li>
-
             </ul>
-
         </nav>
     )
 }
 
-
-export { Navbar };
+export {Navbar} 
