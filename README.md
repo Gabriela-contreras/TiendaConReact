@@ -42,3 +42,15 @@ Hicimos el estilo de la card con tailwindcss y luego nos fijamos en la api para 
 hicimos una funcion y creamos un estado en home para recorrer la api , convertirla en json y extraer la info 
 
 ----------------------------------------------------------------
+
+Hicimos el detalle al abriri cada producto , que es :
+una barrita lateral con las indicaciones del producto (precio, nombre, titulo, etc)
+<!-- y colocamos un icono de https://heroicons.com/outline -->
+Tambien aprovechamos a cambiar todos los iconos del proyecto , carrito , el de agregar , y las x
+
+
+----------------------------------------------------
+Hicimos que se muestre en el Detail el producto que se esta seleccionando y tambien hicimos que cada que se seleccione un producto se cambie el numero del carrito wn el Nav . 
+Proximamente necesitamos que se guarden todos los seleccionados en el detail y en el local Storage . 
+
+--------------------------------------------------
