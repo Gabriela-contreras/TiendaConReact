@@ -16,7 +16,7 @@ const ProductDetail = () => {
                     <XCircleIcon
                         className='h-6 w-6 text-black cursor-pointer'
                         //cierra el detalle del producto
-                        onClick={() => context.closeProductDetail() + console.log("cerrar")
+                        onClick={() => context.closeProductDetail()
                         } />
                 </div>
             </div>

@@ -1,0 +1,11 @@
+.checkout-side-menu {
+    flex-direction: column;
+    background-color: white ;
+    opacity: 0.9;
+    box-shadow: -8px 8px 15px rgba(0, 0, 0, 0.4);
+    /* Sombra hacia la izquierda */
+    height: calc(100vh - 68px);
+    ;
+    width: 360PX;
+    top: 68px;
+}
