@@ -51,6 +51,8 @@ Tambien aprovechamos a cambiar todos los iconos del proyecto , carrito , el de a
 
 ----------------------------------------------------
 Hicimos que se muestre en el Detail el producto que se esta seleccionando y tambien hicimos que cada que se seleccione un producto se cambie el numero del carrito wn el Nav . 
-Proximamente necesitamos que se guarden todos los seleccionados en el detail y en el local Storage . 
+Proximamente necesitamos que se guarden todos los seleccionados 
+creamos un order card para mostrar los productos en el checkoutSideMenu .
+checkoutSideMenu es como el detail pero aparece cuando se seleccione el mas de la card 
 
 --------------------------------------------------
