@@ -1,6 +1,7 @@
 import { useContext } from 'react'
-import { PlusIcon } from '@heroicons/react/outline'
+import { PlusIcon, CheckIcon } from '@heroicons/react/outline'
 import { ShoppingCartContext } from '../../Context'
+import { useEffect , useState} from 'react'
 
 const Card = (data) => {
     // Context
@@ -14,7 +15,7 @@ const Card = (data) => {
         context.closeCheckoutSideMenu()
 
     }
-//|Agrega el producto al carrito
+    //|Agrega el producto al carrito
     const addProductCard = (event, productData) => {
         event.stopPropagation()
         context.setCount(context.count + 1);
@@ -23,7 +24,43 @@ const Card = (data) => {
         context.openCheckoutSideMenu();
         context.closeProductDetail()
     }
+    const renderIcon = (id) => {
 
+        //usando useEffect
+        //estados del producto
+        const [isInCard, setIsInCard] = useState(false)
+        //verifica si el producto esta en el carrito
+        useEffect(() => {
+            const foundCard = context.cartProducts.find(product => product.id === id)
+            setIsInCard(foundCard)
+        }, [context.cartProducts])
+
+
+
+        if (isInCard ) {
+            return (
+                <div
+                    className='absolute top-0 right-0 flex justify-center items-center bg-black w-6 h-6 rounded-full m-2 p-1'
+                    onClick={() => addProductCard(data.data)}>
+                    <CheckIcon
+                        className='h-6 w-6 text-white'
+                    />
+                </div>
+            )
+        } else {
+            return (
+                <div
+                    className='absolute top-0 right-0 flex justify-center items-center bg-white w-6 h-6 rounded-full m-2 p-1'
+                    onClick={() => addProductCard(data.data)}>
+                    <PlusIcon
+                        onClick={(event) => addProductCard(event, data.data)}
+                        className='h-6 w-6 text-black'
+                    />
+                </div>
+            )
+        }
+
+    }
 
     return (
         <div
@@ -32,14 +69,7 @@ const Card = (data) => {
             <figure className='relative mb-2 w-full h-4/5'>
                 <span className='absolute bottom-0 left-0 bg-white/60 rounded-lg text-black text-xs m-2 px-3 py-0.5'>{data.data.category.name}</span>
                 <img className='w-full h-full object-cover rounded-lg' src={data.data.images[0]} alt={data.data.title} />
-                <div
-                    className='absolute top-0 right-0 flex justify-center items-center bg-white w-6 h-6 rounded-full m-2 p-1'
-                    onClick={() => addProductCard(data.data)}>
-                    <PlusIcon 
-                    onClick={(event) => addProductCard(event, data.data)}
-                    className='h-6 w-6 text-black'
-                    />
-                </div>
+                {renderIcon(data.data.id)}
             </figure>
             <p className='flex justify-between'>
                 <span className='text-sm font-light'>{data.data.title}</span>
