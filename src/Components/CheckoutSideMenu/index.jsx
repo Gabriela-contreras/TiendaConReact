@@ -1,14 +1,42 @@
 import { useContext } from 'react'
+import { Link } from 'react-router-dom';
 import { XCircleIcon } from '@heroicons/react/outline';
 import { ShoppingCartContext } from '../../Context'
 import './styles.css'
-import { useState } from 'react';
 import { OrderCard } from '../OrderCard';
+import { totalPrice } from '../../util'
 
 const CheckoutSideMenu = () => {
     // Context
     const context = useContext(ShoppingCartContext)
-    console.log('context.cartProducts', context.cartProducts)
+    // console.log('context.cartProducts', context.cartProducts)
+
+
+    //funcion Date para obtener la fecha actual
+    function obtenerFechaActual() {
+        const fechaActual = new Date();
+
+        const dia = String(fechaActual.getDate()).padStart(2, '0'); // Día con 2 dígitos
+        const mes = String(fechaActual.getMonth() + 1).padStart(2, '0'); // Mes con 2 dígitos
+        const año = fechaActual.getFullYear(); // Año completo
+
+        return `${dia}/${mes}/${año}`;
+    }
+    const handleCheckout = () => {
+        const orderToAdd = {
+            date: obtenerFechaActual(),
+            products: context.cartProducts,
+            totalProducts: context.cartProducts.length,
+            totalPrice: totalPrice(context.cartProducts)
+        }
+
+        context.setOrder([...context.order, orderToAdd])
+        context.setCartProducts([])
+        context.setCount(0)
+    }
+
+
+
 
     return (
         <aside
@@ -29,9 +57,21 @@ const CheckoutSideMenu = () => {
                             title={product.title}
                             imageUrl={product.images}
                             price={product.price}
+                            id={product.id}
                         />
                     ))
                 }
+            </div>
+
+            <div className='mx-2'>
+                <p className='text-center text-lg font-medium p-6 border-t border-b border-black'>
+                    <span>Total:</span>
+                    <span>$ {totalPrice(context.cartProducts)}</span>
+
+                </p>
+                <Link to='/my-order/last'>
+                    <button className='bg-black py-3 text-white w-full rounded-lg' onClick={() => handleCheckout()}>Checkout</button>
+                </Link>
             </div>
         </aside>
     )

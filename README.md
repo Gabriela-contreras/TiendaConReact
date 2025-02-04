@@ -56,3 +56,17 @@ creamos un order card para mostrar los productos en el checkoutSideMenu .
 checkoutSideMenu es como el detail pero aparece cuando se seleccione el mas de la card 
 
 --------------------------------------------------
+Seguimos con la creacion de la funcion eliminar del carrito , que la hicimos en OrderCard y 
+agregamos el id como props dentro del archivo checkoutSideMenu en la parte de OrderCard
+
+seguimos con la parte de sumar el total de productos , para ello vamos a hacer una funcion mas global ya que nos puede servir en otras partes del codigo .
+
+🟢 creamos una carpeta Utils con un index.js y ahi iria la funcion 
+
+
+-----------------------------------------------------------
+
+Comenzamos con ver la compra en my-order , ahi visualizamos los productos ya comprados 
+seguimos con myOrders , que es donde se encuentra el listado de todas las compras realizadas 
+
+-------------------------------------------------------------
