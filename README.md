@@ -68,5 +68,10 @@ seguimos con la parte de sumar el total de productos , para ello vamos a hacer u
 
 Comenzamos con ver la compra en my-order , ahi visualizamos los productos ya comprados 
 seguimos con myOrders , que es donde se encuentra el listado de todas las compras realizadas 
+lo vamos a mostrar y si seleccionan una orden , la tiene que mostrar 
 
 -------------------------------------------------------------
+
+
+
+
