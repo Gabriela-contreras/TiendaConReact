@@ -12,7 +12,7 @@ const CheckoutSideMenu = () => {
     // console.log('context.cartProducts', context.cartProducts)
 
 
-    //funcion Date para obtener la fecha actual
+    //funcion  para obtener la fecha actual
     function obtenerFechaActual() {
         const fechaActual = new Date();
 

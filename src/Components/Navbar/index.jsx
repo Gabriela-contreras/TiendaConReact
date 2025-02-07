@@ -29,7 +29,9 @@ const Navbar = () => {
                         to='/clothes'
                         className={({ isActive }) =>
                             isActive ? activeStyle : undefined
-                        }>
+                        }
+                        onClick={() => context.setSearchByCategory('clothes')}
+                        >
                         Clothes
                     </NavLink>
                 </li>
@@ -38,7 +40,9 @@ const Navbar = () => {
                         to='/electronics'
                         className={({ isActive }) =>
                             isActive ? activeStyle : undefined
-                        }>
+                        }
+                        onClick={() => context.setSearchByCategory('electronics')}
+                        >
                         Electronics
                     </NavLink>
                 </li>
@@ -47,7 +51,9 @@ const Navbar = () => {
                         to='/furnitures'
                         className={({ isActive }) =>
                             isActive ? activeStyle : undefined
-                        }>
+                        }
+                        onClick={() => context.setSearchByCategory('furnitures')}
+                        >
                         Furnitures
                     </NavLink>
                 </li>
@@ -56,7 +62,9 @@ const Navbar = () => {
                         to='/toys'
                         className={({ isActive }) =>
                             isActive ? activeStyle : undefined
-                        }>
+                        }
+                        onClick={() => context.setSearchByCategory('toys')}
+                        >
                         Toys
                     </NavLink>
                 </li>
@@ -65,7 +73,9 @@ const Navbar = () => {
                         to='/others'
                         className={({ isActive }) =>
                             isActive ? activeStyle : undefined
-                        }>
+                        }
+                        onClick={() => context.setSearchByCategory('others')}
+                        >
                         Others
                     </NavLink>
                 </li>

@@ -1,7 +1,7 @@
 import { useContext } from 'react'
 import { PlusIcon, CheckIcon } from '@heroicons/react/outline'
 import { ShoppingCartContext } from '../../Context'
-import { useEffect , useState} from 'react'
+import { useEffect, useState } from 'react'
 
 const Card = (data) => {
     // Context
@@ -17,7 +17,7 @@ const Card = (data) => {
     }
     //|Agrega el producto al carrito
     const addProductCard = (event, productData) => {
-        event.stopPropagation()
+        event.stopPropagation();
         context.setCount(context.count + 1);
         context.setProducts(productData);
         context.setCartProducts([...context.cartProducts, productData]);
@@ -36,12 +36,12 @@ const Card = (data) => {
         }, [context.cartProducts])
 
 
-
-        if (isInCard ) {
+        //resolver tema en card , porq no se habre el checkout y slae como un bucle infinito 
+        if (isInCard) {
             return (
                 <div
                     className='absolute top-0 right-0 flex justify-center items-center bg-black w-6 h-6 rounded-full m-2 p-1'
-                    onClick={() => addProductCard(data.data)}>
+                    onClick={(e) => addProductCard(e , data.data)}>
                     <CheckIcon
                         className='h-6 w-6 text-white'
                     />
