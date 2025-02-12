@@ -1,7 +1,7 @@
 import { useContext } from 'react'
 import { PlusIcon, CheckIcon } from '@heroicons/react/outline'
-import { ShoppingCartContext } from '../../Context'
 import { useEffect, useState } from 'react'
+import { ShoppingCartContext } from '../../Context'
 
 const Card = (data) => {
     // Context
@@ -18,15 +18,22 @@ const Card = (data) => {
     //|Agrega el producto al carrito
     const addProductCard = (event, productData) => {
         event.stopPropagation();
-        context.setCount(context.count + 1);
-        context.setProducts(productData);
-        context.setCartProducts([...context.cartProducts, productData]);
-        context.openCheckoutSideMenu();
-        context.closeProductDetail()
-    }
+    
+        // Verifica si el producto ya está en el carrito
+        const isProductInCart = context.cartProducts.some(product => product.id === productData.id);
+    
+        if (!isProductInCart) {
+            context.setCount(context.count + 1);
+            context.setCartProducts([...context.cartProducts, productData]);
+            context.openCheckoutSideMenu();
+            context.closeProductDetail();
+        }
+    };
+
+    //renderiza el icono de acuerdo a si el producto esta en el carrito
     const renderIcon = (id) => {
 
-        //usando useEffect
+        
         //estados del producto
         const [isInCard, setIsInCard] = useState(false)
         //verifica si el producto esta en el carrito
@@ -35,13 +42,11 @@ const Card = (data) => {
             setIsInCard(foundCard)
         }, [context.cartProducts])
 
-
-        //resolver tema en card , porq no se habre el checkout y slae como un bucle infinito 
-        if (isInCard) {
+        if (isInCard && isInCard.id === id) {
             return (
                 <div
                     className='absolute top-0 right-0 flex justify-center items-center bg-black w-6 h-6 rounded-full m-2 p-1'
-                    onClick={(e) => addProductCard(e , data.data)}>
+                    onClick={(event) => addProductCard(event , data.data)}>
                     <CheckIcon
                         className='h-6 w-6 text-white'
                     />

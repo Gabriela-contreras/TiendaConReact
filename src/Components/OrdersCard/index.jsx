@@ -30,7 +30,7 @@ const OrdersCard = props => {
             </p>
             <div className="flex items-center justify-center w-[200px]">
                 <span className="font-semibold text-xl mx-4 ">${totalPrice}</span>
-                <ChevronRightIcon className='h-8 w-8 text-black cursor-pointer mr-3' />
+                <ChevronRightIcon className='h-8 w-8 text-black cursor-pointer mr-3'  />
             </div>
         </div>
     )

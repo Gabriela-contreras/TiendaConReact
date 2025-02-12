@@ -15,6 +15,7 @@ export const ShoppingCartProvider = ({ children }) => {
 
     // Checkout  · Open/Close
     const [isCheckoutSideMenuOpen, setIsCheckoutSideMenuOpen] = useState(false);
+
     const openCheckoutSideMenu = () => setIsCheckoutSideMenuOpen(true);
     const closeCheckoutSideMenu = () => setIsCheckoutSideMenuOpen(false);
 
@@ -35,6 +36,7 @@ export const ShoppingCartProvider = ({ children }) => {
     //Items
     const [items, setItems] = useState(null)
     // Fetching data from the API
+
     useEffect(() => {
         fetch('https://api.escuelajs.co/api/v1/products')
             .then(response => response.json())
@@ -45,8 +47,9 @@ export const ShoppingCartProvider = ({ children }) => {
 
     // Get products by title
     const [searchByTitle, setSearchByTitle] = useState(null)
+
     const [searchByCategory, setSearchByCategory] = useState(null)
-    console.log(searchByCategory + 'searchcategory');
+    // console.log(searchByCategory + 'searchcategory');
 
     // Get products by title
     const filteredItemsByTitle = (items, searchByTitle) => {
@@ -58,31 +61,33 @@ export const ShoppingCartProvider = ({ children }) => {
         return items?.filter(item => item.category.name.toLowerCase().includes(searchByCategory.toLowerCase()))
     }
 
+
     // Filter items by title and category
     const filterBy = (searchType, items, searchByTitle, searchByCategory) => {
         if (searchType === 'BY_TITLE') {
             return filteredItemsByTitle(items, searchByTitle)
         }
+
         if (searchType === 'BY_CATEGORY') {
             return filteredItemsByCategory(items, searchByCategory)
         }
+
         if (searchType === 'BY_TITLE_AND_CATEGORY') {
             return filteredItemsByCategory(items, searchByCategory).filter(item => item.title.toLowerCase().includes(searchByTitle.toLowerCase()))
         }
+
         if (!searchType) {
             return items
         }
-
-
     }
-    // Filter items by title and category 
-    useEffect(() => {
-        if (searchByTitle && !searchByCategory) setFilteredItems(filterBy('BY_TITLE', items, searchByTitle, searchByCategory))
-        if (searchByCategory && !searchByTitle) setFilteredItems(filterBy('BY_CATEGORY', items, searchByTitle, searchByCategory))
-        if (searchByTitle && searchByCategory) setFilteredItems(filterBy('BY_TITLE_CATEGORY', items, searchByTitle, searchByCategory))
-        if (!searchByTitle && !searchByCategory) setFilteredItems(filterBy(null, items, searchByTitle, searchByCategory))
 
+    useEffect(() => {
+        if (searchByTitle && searchByCategory) setFilteredItems(filterBy('BY_TITLE_AND_CATEGORY', items, searchByTitle, searchByCategory))
+        if (searchByTitle && !searchByCategory) setFilteredItems(filterBy('BY_TITLE', items, searchByTitle, searchByCategory))
+        if (!searchByTitle && searchByCategory) setFilteredItems(filterBy('BY_CATEGORY', items, searchByTitle, searchByCategory))
+        if (!searchByTitle && !searchByCategory) setFilteredItems(filterBy(null, items, searchByTitle, searchByCategory))
     }, [items, searchByTitle, searchByCategory])
+
 
     return (
         <ShoppingCartContext.Provider value={{
@@ -109,7 +114,6 @@ export const ShoppingCartProvider = ({ children }) => {
             searchByTitle,
             setSearchByTitle,
             filteredItems,
-            setFilteredItems,
             searchByCategory,
             setSearchByCategory
 

@@ -1,14 +1,16 @@
-import { XCircleIcon } from '@heroicons/react/outline';
 import { useContext } from 'react';
 import { ShoppingCartContext } from '../../Context';
+import {ChevronRightIcon } from "@heroicons/react/outline";
+
 
 const OrderCard = props => {
     const { title, imageUrl, price, id, handleDelete } = props
 
-    let renderXMarkIcon
-    if (handleDelete) {
-        renderXMarkIcon = <XCircleIcon onClick={() => handleDelete(id)} className='h-6 w-6 text-black cursor-pointer'></XCircleIcon>
-    }
+    // let renderXMarkIcon
+    // if (deleteProduct) {
+    //     renderXMarkIcon = <ChevronRightIcon onClick={() => deleteProduct(id)} className='h-6 w-6 text-black cursor-pointer'></ChevronRightIcon>
+    // }
+    
 
 
 
@@ -35,7 +37,8 @@ const OrderCard = props => {
             </div>
             <div className='flex items-center gap-2'>
                 <p className='text-lg font-medium'>{price}</p>
-                {renderXMarkIcon}
+                {/* {renderXMarkIcon} */}
+                <ChevronRightIcon onClick={() => deleteProduct(id)} className='h-6 w-6 text-black cursor-pointer'></ChevronRightIcon>
             </div>
         </div>
     )

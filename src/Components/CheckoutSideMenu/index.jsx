@@ -22,6 +22,8 @@ const CheckoutSideMenu = () => {
 
         return `${dia}/${mes}/${año}`;
     }
+
+    //funcion para obtener el total de la compra
     const handleCheckout = () => {
         const orderToAdd = {
             date: obtenerFechaActual(),
@@ -33,9 +35,10 @@ const CheckoutSideMenu = () => {
         context.setOrder([...context.order, orderToAdd])
         context.setCartProducts([])
         context.setCount(0)
+        context.closeCheckoutSideMenu()
     }
 
-
+    
 
 
     return (
