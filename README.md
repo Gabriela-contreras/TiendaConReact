@@ -1,4 +1,5 @@
 # TiendaConReact
+Paso a Paso !!
 
 Lo primero que hicimos fue intalar Vite y TailwindCSS 
 
@@ -29,7 +30,7 @@ Creamos el Navbar y utilizamos Navlink
 
 ---------------------------------------------------
 
-Layout 
+creamos Layout 
 <!-- creamos el componente layout para poder encapsular nuestras 
 paginas en ese componente y darle los estilos deseados -->
 
