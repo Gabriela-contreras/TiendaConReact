@@ -1,78 +1,144 @@
 # TiendaConReact
-Paso a Paso !!
 
-Lo primero que hicimos fue intalar Vite y TailwindCSS 
+## 🌐 Página
 
-<!-- codigo terminal para intalar Vite  -->
+Puedes visitar la versión funcional del proyecto en el siguiente enlace:
+[tienda-react-henna.vercel.app](https://tienda-react-henna.vercel.app/)
 
-<!-- npm create vite@latest my-project -- --template react
-cd my-project -->
+### Vista previa
 
-Para instalar Tailwind hay que seguir los pasos de la pagina 
-<!-- https://tailwindcss.com/docs/installation/using-vite -->
+![Vista previa del proyecto](https://github.com/user-attachments/assets/5e7e4050-149e-40c6-8810-1035f8e518e0)
 
-ORGANIZAMOS LAS CARPETAS EN SRC , CREAMOS UNA CARPETA PAGES DONDE VAN A ESTAR TODAS NUESTRAS PAGINAS Y CREAMOS HOME 
+---
 
------------------------------------------
+## 🔧 Paso a paso para crear la tienda
 
-Proximo paso es crear los archivos con los index.jsx , hacer los componentes de cada archivo y
-Creamos los componentes y usamos UseRoutes para redirigir desde App .
-Tenemos :
-Home 
-MyAccount
-MyOrder
-MyOrders
-SingIn
-NotFound 
+### 1. Instalación de Vite y TailwindCSS
 
----------------------------------------------------
-Creamos el Navbar y utilizamos Navlink
+#### Instalación de Vite
 
----------------------------------------------------
+Ejecuta los siguientes comandos en tu terminal:
 
-creamos Layout 
-<!-- creamos el componente layout para poder encapsular nuestras 
-paginas en ese componente y darle los estilos deseados -->
+```bash
+npm create vite@latest my-project -- --template react
+cd my-project
+```
 
------------------------------------------------------------
+#### Instalación de TailwindCSS
 
-Creamos las card y usamos una Api de Platzi con productos ya cargados 
-<!-- export const apiUrl = 'https://api.escuelajs.co/api/v1' -->
+Sigue los pasos descritos en la [documentación oficial de TailwindCSS](https://tailwindcss.com/docs/installation/using-vite) para integrarlo con Vite.
 
-Hicimos el estilo de la card con tailwindcss y luego nos fijamos en la api para pasarle los titulos , precios , etc 
-hicimos una funcion y creamos un estado en home para recorrer la api , convertirla en json y extraer la info 
+---
 
-----------------------------------------------------------------
+### 2. Organización de carpetas
 
-Hicimos el detalle al abriri cada producto , que es :
-una barrita lateral con las indicaciones del producto (precio, nombre, titulo, etc)
-<!-- y colocamos un icono de https://heroicons.com/outline -->
-Tambien aprovechamos a cambiar todos los iconos del proyecto , carrito , el de agregar , y las x
+En la carpeta `src`:
 
+* Crea una carpeta llamada `pages` para alojar las páginas de la aplicación.
+* Dentro de `pages`, crea el archivo `Home/index.jsx`.
 
-----------------------------------------------------
-Hicimos que se muestre en el Detail el producto que se esta seleccionando y tambien hicimos que cada que se seleccione un producto se cambie el numero del carrito wn el Nav . 
-Proximamente necesitamos que se guarden todos los seleccionados 
-creamos un order card para mostrar los productos en el checkoutSideMenu .
-checkoutSideMenu es como el detail pero aparece cuando se seleccione el mas de la card 
+---
 
---------------------------------------------------
-Seguimos con la creacion de la funcion eliminar del carrito , que la hicimos en OrderCard y 
-agregamos el id como props dentro del archivo checkoutSideMenu en la parte de OrderCard
+### 3. Creación de componentes y rutas
 
-seguimos con la parte de sumar el total de productos , para ello vamos a hacer una funcion mas global ya que nos puede servir en otras partes del codigo .
+* Crea los componentes correspondientes para cada página:
 
-🟢 creamos una carpeta Utils con un index.js y ahi iria la funcion 
+  * Home
+  * MyAccount
+  * MyOrder
+  * MyOrders
+  * SignIn
+  * NotFound
 
+* Usa `useRoutes` para gestionar las rutas desde el archivo `App.jsx`.
 
------------------------------------------------------------
+---
 
-Comenzamos con ver la compra en my-order , ahi visualizamos los productos ya comprados 
-seguimos con myOrders , que es donde se encuentra el listado de todas las compras realizadas 
-lo vamos a mostrar y si seleccionan una orden , la tiene que mostrar 
+### 4. Navbar
 
--------------------------------------------------------------
+Crea el componente `Navbar` y utiliza `NavLink` para facilitar la navegación entre las páginas.
 
+---
 
+### 5. Layout
 
+Crea el componente `Layout` para encapsular las páginas y aplicar estilos consistentes.
 
+---
+
+### 6. Tarjetas de productos (Cards)
+
+#### Integración con la API
+
+Usamos la API de Platzi con productos pre-cargados:
+
+```javascript
+export const apiUrl = 'https://api.escuelajs.co/api/v1';
+```
+
+* Estiliza las tarjetas con TailwindCSS.
+* En el componente `Home`, crea una función que recorra la API, la convierta a JSON y extraiga la información necesaria para renderizar las tarjetas.
+
+---
+
+### 7. Detalle del producto
+
+* Crea un componente lateral ("sidebar") para mostrar los detalles del producto seleccionado (precio, nombre, descripción, etc.).
+* Usa íconos de [Heroicons](https://heroicons.com/outline).
+* Cambia todos los íconos del proyecto, incluyendo los del carrito, agregar y cerrar ("X").
+
+---
+
+### 8. Carrito de compras
+
+#### Actualización del carrito
+
+* Al seleccionar un producto, actualiza el número en el ícono del carrito.
+
+#### Órdenes en el carrito
+
+* Crea el componente `OrderCard` para mostrar los productos seleccionados en el `CheckoutSideMenu`. Este funciona como el componente de detalle, pero aparece cuando se selecciona el botón "más" en una tarjeta.
+
+#### Eliminación de productos
+
+* Implementa la función de eliminación de productos en el componente `OrderCard`.
+
+#### Cálculo del total
+
+* Crea una función global para calcular el total de productos seleccionados. Aloja esta función en una carpeta llamada `utils` dentro de `src`.
+
+---
+
+### 9. Historial de compras
+
+#### MyOrder
+
+* Visualiza los productos comprados.
+
+#### MyOrders
+
+* Muestra un listado de todas las compras realizadas. Permite seleccionar una orden para visualizarla en detalle.
+
+---
+
+## 💪 Mejoras futuras
+
+* Persistencia de los datos seleccionados en el carrito utilizando almacenamiento local o una base de datos.
+* Incorporación de autenticación y registro para usuarios.
+* Mejoras en el diseño responsivo.
+
+---
+
+## 🚀 Tecnologías usadas
+
+* **Vite**: Entorno de desarrollo rápido.
+* **React**: Biblioteca para la creación de interfaces de usuario.
+* **TailwindCSS**: Framework CSS para estilos rápidos y eficientes.
+* **Heroicons**: Íconos SVG.
+* **API de Platzi**: Fuente de datos para los productos.
+
+---
+
+## 🔗 Sígueme y dale like
+
+¡Si este proyecto te ha sido útil o inspirador, no olvides darle un ⭐ al repositorio y seguirme para más contenido interesante! 🚀
