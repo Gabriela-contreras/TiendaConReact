@@ -8,6 +8,8 @@ Puedes visitar la versión funcional del proyecto en el siguiente enlace:
 ### Vista previa
 
 ![Vista previa del proyecto](https://github.com/user-attachments/assets/5e7e4050-149e-40c6-8810-1035f8e518e0)
+<img src="![image](https://github.com/user-attachments/assets/be1c6f86-6e5b-45e2-93af-ad5317b84403)"/>
+"
 
 ---
 
